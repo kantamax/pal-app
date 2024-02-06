@@ -9,14 +9,14 @@ import { Badge } from "@/components/ui/badge"
 export function MojipaUnder() {
   return (
     <div className="bg-black text-white p-8">
-      <h1 className="text-2xl font-bold mb-6">募集信箱</h1>
+      <h1 className="text-2xl font-bold mb-6">募集伝言板</h1>
       <div className="flex justify-between items-center mb-4">
         <div className="flex space-x-1">
           <Button className="bg-blue-500 text-white px-4 py-2 rounded">1</Button>
-          <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">2</Button>
-          <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">3</Button>
-          <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">4</Button>
-          <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">5</Button>
+          {/* <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">2</Button> */}
+          {/* <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">3</Button> */}
+          {/* <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">4</Button> */}
+          {/* <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">5</Button> */}
         </div>
       </div>
       <Table>
