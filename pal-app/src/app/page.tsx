@@ -1,14 +1,15 @@
+import { getAllBoard } from "@/api";
 import { MojipaTop } from "@/components/component/mojipa-top";
 import { MojipaUnder } from "@/components/component/mojipa-under";
-import { SampleData } from "@/components/component/sample-data";
-import { NoFallbackError } from "next/dist/server/base-server";
 
-export default function Home() {
+export default async function Home() {
+  const boards = await getAllBoard();
+  //console.log(boards);
+
   return (
     <main className="flex flex-col justify-between bg-black">
-      <SampleData />
       <MojipaTop />
-      <MojipaUnder />
+      <MojipaUnder boards={boards} />
     </main>
   );
 }

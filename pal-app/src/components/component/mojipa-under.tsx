@@ -4,19 +4,19 @@
  */
 import { Button } from "@/components/ui/button"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
-import { Badge } from "@/components/ui/badge"
+import { Board } from "@/types"
 
-export function MojipaUnder() {
+interface BoardListProps{
+  boards: Board[];
+}
+
+export function MojipaUnder({ boards }: BoardListProps) {
   return (
     <div className="bg-black text-white p-8">
       <h1 className="text-2xl font-bold mb-6">募集伝言板</h1>
       <div className="flex justify-between items-center mb-4">
         <div className="flex space-x-1">
           <Button className="bg-blue-500 text-white px-4 py-2 rounded">1</Button>
-          {/* <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">2</Button> */}
-          {/* <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">3</Button> */}
-          {/* <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">4</Button> */}
-          {/* <Button className="bg-gray-700 text-gray-300 px-4 py-2 rounded">5</Button> */}
         </div>
       </div>
       <Table>
@@ -29,33 +29,16 @@ export function MojipaUnder() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableCell className="font-medium">35416</TableCell>
-            <TableCell>02月03日</TableCell>
-            <TableCell>#UQnhqNzFmZ3pZ</TableCell>
-            <TableCell>
-              {`\n              シルバー2です\u{3000}ソロしかないんで一緒にやっていける方\u{3000}コメントのみで\u{3000}社会人でお願いします\n              `}
-              <div className="text-blue-400">DiscordID : shun#7207</div>
+          {boards.map((board) => (
+            <TableRow key={board.No}>
+            <TableCell className="font-medium">{board.No}</TableCell>
+            <TableCell>{board.Date}</TableCell>
+            <TableCell>{board.Id}</TableCell>
+            <TableCell>{board.Comment}
+              <div className="text-blue-400">DiscordID : {board.DiscordId}</div>
             </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className="font-medium">35415</TableCell>
-            <TableCell>02月03日</TableCell>
-            <TableCell>#oNWp6cWt5S29r</TableCell>
-            <TableCell>
-              {`\n              コメントでもアジアでも落としやれる方一緒にやりませんか？\u{3000}ランクはゴールドです！\n              `}
-              <div className="text-blue-400">DiscordID : 明けの明星#3707</div>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className="font-medium">35412</TableCell>
-            <TableCell>02月03日</TableCell>
-            <TableCell>#1bVNtajYwRFlV</TableCell>
-            <TableCell>
-              ゴルプラ@1-3
-              <div className="text-blue-400">DiscordID : right7777</div>
-            </TableCell>
-          </TableRow>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </div>
