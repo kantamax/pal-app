@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 
 export function MojipaTop() {
   return (
-    <div className="max-w-2xl mx-auto my-8 p-6 border border-gray-200 rounded-md bg-black text-black dark:border-gray-800">
+    <div className="mx-auto p-6 bg-black text-black">
       <form>
         <div className="grid gap-6">
           <div>
