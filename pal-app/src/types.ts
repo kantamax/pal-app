@@ -6,3 +6,7 @@ export interface Board {
     SkypeId: string;
     DiscordId: string;
 }
+
+export interface Definition {
+    definition: string;
+}

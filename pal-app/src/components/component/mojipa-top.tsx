@@ -9,18 +9,25 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { ChangeEvent, FormEvent, useState } from "react"
 import { addBoard } from "@/api"
+import { Definition } from "@/types";
 
-export function MojipaTop() {
+interface DefinitionProps{
+  definition: Definition;
+}
+
+export function MojipaTop({ definition }: DefinitionProps) {
   const [idUser, setIdUser] = useState("")
-  //const [commentUser, setCommentUser] = useState("")
+  const [commentUser, setCommentUser] = useState("")
   const [skypeIdUser, setSkypeIdUser] = useState("")
   const [discordIdUser, setDiscordIdUser] = useState("")
-
+  const Increment = definition
+  console.log(Increment);
+  
   const handleSubmit = async (e:FormEvent) => {
     e.preventDefault();
-
-    await  addBoard({ No: "33333", Date: "2月10日", Id: idUser, Comment: "TEST", SkypeId: skypeIdUser, DiscordId: discordIdUser});
+    await  addBoard({ No: "33333", Date: "2月10日", Id: idUser, Comment: commentUser, SkypeId: skypeIdUser, DiscordId: discordIdUser});
     setIdUser("")
+    setCommentUser("")
     setSkypeIdUser("")
     setDiscordIdUser("")
 
@@ -28,7 +35,7 @@ export function MojipaTop() {
 
   return (
     <div className="mx-auto p-6 bg-black text-black">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="grid gap-6">
           <div>
             <label className="block mb-2 text-sm font-medium text-white" htmlFor="platform">
@@ -94,12 +101,12 @@ export function MojipaTop() {
             <Textarea
               className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               id="comment"
-              //onChange={(e: ChangeEvent<HTMLInputElement>) => setCommentUser(e.target.value)}
+              onChange={(e) => setCommentUser(e.target.value)}
               placeholder=""
             />
           </div>
           <div>
-            <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onSubmit={handleSubmit}>送信</Button>
+            <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">送信</Button>
           </div>
         </div>
       </form>
